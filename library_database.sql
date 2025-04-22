@@ -16,7 +16,7 @@ CREATE TABLE `books` (
   `genre` varchar(255),
   `image` varchar(1027),
   `copies_available` INT(11) NOT NULL,
-  `checkedout_count` INT(11) DEFAULT NULL,
+  `checkedout_count` INT(11) DEFAULT 0,
   PRIMARY KEY (`book_id`)
 );
 

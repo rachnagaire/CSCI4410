@@ -140,7 +140,9 @@ $conn = new mysqli($servername, $username, $password, $database);
                 echo "<td>{$row['description']}</td>";
                 echo "<td>{$row['length']}</td>";
                 echo "<td>{$row['genre']}</td>";
-                echo "<td>{$row['image']}</td>"; // echo "<td><img src='{$row['image']}'></td>"; -> replace with to display images
+                $imageSrc = htmlspecialchars($row['image'], ENT_QUOTES);
+                //echo "<td>{$imageSrc}</td>"; 
+                echo "<td><img src='{$imageSrc}' width='50' height='100'></td>"; //-> replace with to display images
                 echo "<td>{$row['copies_available']}</td>";
                 if ($row['copies_available'] > 0) {
                     echo "<td>Available</td>";

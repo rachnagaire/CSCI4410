@@ -76,7 +76,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                 $checkout_sql = "INSERT INTO checked_out (user_id, book_id) VALUES ($user_id, $book_id)";
                 mysqli_query($conn, $checkout_sql);
     
-                $update_checkout_sql = "UPDATE books SET copies_available = copies_available - 1 WHERE book_id = $book_id";
+                $update_checkout_sql = "UPDATE books SET copies_available = copies_available - 1 , checkedout_count = checkedout_count + 1 WHERE book_id = $book_id";
                 mysqli_query($conn, $update_checkout_sql);
     
                 header("Location: dashboard.php");

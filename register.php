@@ -8,12 +8,22 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
+$servername = "localhost"; //create initial connection
+$username = "root";
+$password = "";
+$database = "library_database"; 
+$conn = new mysqli($servername, $username, $password, $database);
+
 //form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //get the form values and sanitize them
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
+
+    $username = mysqli_real_escape_string($conn, $username);
+    $dupe_username_check = "SELECT * FROM users WHERE username = '$username'";
+    $dupe_username_check_result = mysqli_query($conn, $dupe_username_check);
 
     //validate input
     if (empty($username) || empty($email) || empty($password)) {
@@ -22,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Invalid email format.";
     } elseif (strlen($password) < 8) { //password length check
         $error = "Password must be at least 8 characters long.";
+    } elseif ($dupe_username_check_result->num_rows > 0) {
+        $error = "Username already taken. Please choose another.";
     }
 
     //if no validation errors

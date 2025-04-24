@@ -56,25 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Register</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="navbar">
-                <li><a href="home.php">Home</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Register</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include 'header.php'; ?>
 
     <div class="container">
         <h1>Register</h1>

@@ -7,6 +7,7 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,5 +40,12 @@ if (isset($_SESSION['user_id'])) {
     </div>
 </div>
 
+=======
+
+<?php include 'header.php'; ?>
+    <h1>Welcome to the Library Database Management</h1>
+    <a href="login.php" class="button">Login</a>
+    <a href="register.php" class="button">Register</a>
+>>>>>>> Stashed changes
 </body>
 </html>

@@ -68,8 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
         <form action="login.php" method="post">
+            <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" class="form-control" required>
+            </div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit" class="button">Login</button>

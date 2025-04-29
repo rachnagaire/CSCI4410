@@ -15,16 +15,9 @@ $database = "library_database";
 $conn = new mysqli($servername, $username, $password, $database);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
 
-</head>
-<body>
+     
+<?php include 'backend/header-b.php'; ?>
     <header>
         <nav>
             <ul class="navbar">
@@ -35,6 +28,108 @@ $conn = new mysqli($servername, $username, $password, $database);
         </nav>
     </header>
 
+
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+           
+           <?php  include 'sidebar.php'?>
+           
+            <div class="col-md-10 col-sm-11 display-table-cell v-align dashboard-main">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                <?php  include 'backend/top-header.php'?>
+                </div>
+                <div class="user-dashboard">
+                    <h3 class="mt-5 mb-5">Welcome back,  <?php echo htmlspecialchars($firstname); ?></h3>
+                    <div class="row column1">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="full counter_section margin_bottom_30 yellow_bg">
+                               <a href="dashboard-patient.php" class="overlay"></a>
+                             <div class="counter-info">
+                             <div class="counter_icon">
+                                 <div> 
+                                    <i class="fa fa-user"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">1</p>
+                                    
+                                 </div>
+                              </div>
+                            </div>
+                            <p class="head_counter">Total Books</p>
+                            </div>
+                        
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30 blue1_bg">
+                              <div class="counter-info">
+                              <div class="counter_icon">
+                                 <div> 
+                                 <i class="fa fa-calendar"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">1</p>
+                                   
+                                 </div>
+                              </div>
+                              </div>
+                              <p class="head_counter">Total Genre</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30 green_bg">
+                              <div class="counter-info">
+                              <div class="counter_icon">
+                                 <div> 
+                                 <i class="fa fa-user"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">1</p>
+                                </div>
+                                </div>
+                              </div>
+                            <p class="head_counter">Total </p>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30 red_bg">
+                              <div class="counter-info">
+                              <div class="counter_icon">
+                                 <div> 
+                                 <i class="fa fa-user"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="head_counter">Total User</p>
+                           </div>
+                        </div>
+                     </div>
+                    <div class="row">
+                    <div class="chart-container">   
+                       <div class="card px-5 py-2">
+                       <canvas id="ageChart" width="500" height="500"></canvas>
+                       </div>
+                       <div class="card px-5 py-2">
+                       <canvas id="genderChart" width="500" height="500" ></canvas>
+                       </div>
+                    </div>
+
+                    </div>
+                
+                    </div>
+                    <script>
+        
     <h1>Dashboard</h1>
 
 <form method="POST">
@@ -192,5 +287,6 @@ $conn = new mysqli($servername, $username, $password, $database);
     }
 	$conn->close();
 ?>
-</body>
-</html>
+
+<?php include 'backend/footer-b.php'; ?>
+
